@@ -3,40 +3,43 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   Post,
   Put,
 } from '@nestjs/common';
 import { CreateWineDto } from './dto/create-wine.dto';
 import { UpdateWineDto } from './dto/update-wine.dto';
+import { WinesService } from './wines.service';
 
 @Controller('wines')
 export class WinesController {
+  constructor(private readonly winesService: WinesService) {}
+
   @Get()
-  findAll(): string {
-    return 'This action returns all wines';
+  getAll() {
+    return this.winesService.getAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): string {
-    return `This action returns wines by id: ${id}`;
+  getOne(@Param('id') id: string) {
+    return this.winesService.getById(id);
   }
 
   @Post()
-  create(@Body() createWineDto: CreateWineDto): string {
-    return 'This action returns all wines';
+  @HttpCode(HttpStatus.CREATED)
+  create(@Body() createWineDto: CreateWineDto) {
+    return this.winesService.add(createWineDto);
   }
 
   @Put(':id')
-  update(
-    @Body() updateWindeDto: UpdateWineDto,
-    @Param('id') id: string,
-  ): string {
-    return 'This action returns all wines';
+  update(@Body() updateWindeDto: UpdateWineDto, @Param('id') id: string) {
+    return this.winesService.update(id, updateWindeDto);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string): string {
-    return 'This action returns all wines';
+  delete(@Param('id') id: string) {
+    return this.winesService.delete(id);
   }
 }
