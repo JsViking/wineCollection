@@ -1,27 +1,34 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreateWineDto } from './dto/create-wine.dto';
+import { Wines, WinesDocument } from './wines.schema';
 
 @Injectable()
 export class WinesService {
+  constructor(
+    @InjectModel(Wines.name) private winesModel: Model<WinesDocument>,
+  ) {}
   private wines = [];
 
-  getAll() {
-    return this.wines;
+  async getAll(): Promise<Wines[]> {
+    return this.winesModel.find().exec();
   }
 
-  getById(id: string) {
-    return this.wines.map((_, i) => String(i) === id);
+  async getById(id: string): Promise<Wines> {
+    return this.winesModel.findById(id);
   }
 
-  add(body: CreateWineDto) {
-    return this.wines.push(body);
+  async add(body: CreateWineDto): Promise<Wines> {
+    const newWines = new this.winesModel(body);
+    return newWines.save();
+  }
+
+  async delete(id: string): Promise<Wines> {
+    return this.winesModel.remove(id);
   }
 
   update(id: string, body: CreateWineDto) {
-    return (this.wines[id] = body);
-  }
-
-  delete(id: string) {
-    return this.wines.splice(Number(id), 1);
+    return this.winesModel.findByIdAndUpdate(id, body, { new: true });
   }
 }
