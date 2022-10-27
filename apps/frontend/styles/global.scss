@@ -2,7 +2,6 @@
 @import './reset';
 @import './normalize';
 @import './fonts';
-@import '../views/videoPlatformcraft/platformcraft-style.css';
 
 html,
 body {
@@ -59,91 +58,5 @@ img {
 :root {
   @each $key, $value in $lightTheme {
     #{unquote($key)}: $value;
-  }
-}
-
-.swiper-wrapper {
-  align-items: baseline;
-}
-
-.swiper {
-  width: 100%;
-}
-
-.prev {
-  width: 21px;
-  height: 21px;
-  border-radius: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  position: absolute;
-  left: 8px;
-  top: calc(50% - 16px);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-  &:hover {
-    background: rgba(0, 0, 0, 1);
-  }
-  &.swiper-button-disabled {
-    cursor: default;
-    background: rgba(0, 0, 0, 0.4);
-  }
-  svg {
-    transform: scale(0.7);
-  }
-  @media (min-width: 400px) {
-    width: 42px;
-    height: 42px;
-    top: calc(50% - 32px);
-    svg {
-      transform: scale(1);
-    }
-    @media (min-width: 744px) {
-      width: 36px;
-      height: 36px;
-      top: calc(50% - 27px);
-    }
-  }
-}
-
-.next {
-  width: 21px;
-  height: 21px;
-  border-radius: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  position: absolute;
-  right: 8px;
-  top: calc(50% - 19px);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-  &:hover {
-    background: rgba(0, 0, 0, 1);
-  }
-  &.swiper-button-disabled {
-    cursor: default;
-    background: rgba(0, 0, 0, 0.4);
-  }
-  svg {
-    transform: scale(0.7);
-  }
-  @media (min-width: 400px) {
-    width: 42px;
-    height: 42px;
-    top: calc(50% - 32px);
-    svg {
-      transform: scale(1);
-    }
-    @media (min-width: 744px) {
-      width: 36px;
-      height: 36px;
-      top: calc(50% - 27px);
-    }
   }
 }

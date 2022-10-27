@@ -1,10 +1,18 @@
-import { Button } from "ui";
+import { ReactElement } from 'react';
+import { Button } from 'ui';
+import Layout from 'layouts/baseLayout';
 
-export default function Web() {
+const Home = () => {
   return (
     <div>
       <h1>Web</h1>
       <Button />
     </div>
   );
-}
+};
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default Home;
