@@ -1,0 +1,18 @@
+@use 'sass:color';
+@import '../mixins/mapToProps.scss';
+
+$lightTheme: (
+  '--color-common-black': #000007,
+  '--color-common-white': #ffffff,
+  '--color-common-gray': #ebedf3,
+  '--color-primary-red': #ff0000,
+  '--color-social-grey': #f1f5f8,
+  '--color-link': #0167ff,
+  '--color-hover-text': #717171,
+);
+
+:export {
+  @each $key, $value in $lightTheme {
+    #{unquote($key)}: $value;
+  }
+}
