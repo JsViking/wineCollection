@@ -1,3 +1,7 @@
 .BaseLayout {
   position: relative;
+  min-width: 100vh;
+  .body {
+    position: relative;
+  }
 }
