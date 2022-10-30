@@ -1,14 +1,15 @@
 import classes from './mainPage.module.scss';
-import { IWinde } from 'models/wines';
+import { IWine } from 'models/wines';
+import Card from 'components/Card';
 
 interface Props {
-  data: IWinde[];
+  data: IWine[];
 }
 const MainPage = ({ data }: Props) => {
   return (
     <div className={classes.MainPage}>
-      {data.map(() => (
-        <div>!</div>
+      {data.map((wine) => (
+        <Card {...wine} />
       ))}
     </div>
   );

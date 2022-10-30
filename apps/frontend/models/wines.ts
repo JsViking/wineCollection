@@ -1,4 +1,4 @@
-export interface IWinde {
+export interface IWine {
   title: string;
   description: string;
   image: string;
