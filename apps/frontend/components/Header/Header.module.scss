@@ -11,5 +11,8 @@
     display: flex;
     gap: 15px;
     align-items: center;
+    @media (max-width: 1300px) {
+      margin: 0 50px;
+    }
   }
 }

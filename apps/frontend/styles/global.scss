@@ -13,10 +13,7 @@ body {
   color: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--color-main-background);
-  @media (min-width: 1000px) {
-    font: 1rem/140% 'Roboto', sans-serif;
-  }
+  background-color: var(--color-common-white);
 }
 html {
   height: auto;

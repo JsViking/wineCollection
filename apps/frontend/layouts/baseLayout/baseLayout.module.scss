@@ -1,7 +1,13 @@
 .BaseLayout {
   position: relative;
-  min-width: 100vh;
+  min-height: 100vh;
   .body {
     position: relative;
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    @media (max-width: 1300px) {
+      margin: 0 50px;
+    }
   }
 }
