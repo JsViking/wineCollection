@@ -1,6 +1,7 @@
 import Header from 'components/Header';
 import EditModal from 'feature/editModal';
 import classes from './baseLayout.module.scss';
+import { WithCrudContext } from 'store/crud.context';
 
 interface Props {
   children?: React.ReactNode;
@@ -9,11 +10,13 @@ interface Props {
 const BaseLayout = ({ children }: Props) => {
   return (
     <>
-      <div className={classes.BaseLayout}>
-        <Header />
-        <div className={classes.body}>{children}</div>
-      </div>
-      <EditModal />
+      <WithCrudContext>
+        <div className={classes.BaseLayout}>
+          <Header />
+          <div className={classes.body}>{children}</div>
+        </div>
+        <EditModal />
+      </WithCrudContext>
     </>
   );
 };
