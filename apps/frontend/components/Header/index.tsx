@@ -9,7 +9,7 @@ const menu = [
   },
   {
     title: 'Добавить вино',
-    href: '/add',
+    href: '/edit',
   },
 ];
 

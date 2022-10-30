@@ -1,0 +1,17 @@
+.AddCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px var(--color-common-dark-grey) solid;
+  border-radius: 7px;
+  cursor: pointer;
+  .plus {
+    font-size: 150px;
+  }
+  &:hover {
+    .plus {
+      opacity: 0.8;
+    }
+  }
+}
