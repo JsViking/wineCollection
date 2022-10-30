@@ -1,4 +1,5 @@
 import Header from 'components/Header';
+import EditModal from 'feature/editModal';
 import classes from './baseLayout.module.scss';
 
 interface Props {
@@ -7,10 +8,13 @@ interface Props {
 
 const BaseLayout = ({ children }: Props) => {
   return (
-    <div className={classes.BaseLayout}>
-      <Header />
-      <div className={classes.body}>{children}</div>
-    </div>
+    <>
+      <div className={classes.BaseLayout}>
+        <Header />
+        <div className={classes.body}>{children}</div>
+      </div>
+      <EditModal />
+    </>
   );
 };
 

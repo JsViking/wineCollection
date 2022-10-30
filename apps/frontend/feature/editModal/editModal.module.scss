@@ -1,0 +1,26 @@
+@mixin fullscreen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.EditModal {
+  @include fullscreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  .body {
+    position: relative;
+    width: 420px;
+    height: 680px;
+    background-color: var(--color-common-white);
+  }
+}
+
+.overlay {
+  @include fullscreen;
+  background-color: var(--color-common-dark-grey);
+  opacity: 0.8;
+}
