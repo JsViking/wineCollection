@@ -1,5 +1,6 @@
 import classes from './editModal.module.scss';
 import { useCrudContext } from 'store/crud.context';
+import Typography from 'components/typography';
 
 const EditModal = () => {
   const { setEditWine, editWine } = useCrudContext();
@@ -7,9 +8,18 @@ const EditModal = () => {
   return (
     <>
       <div className={classes.EditModal}>
-        <div className={classes.body}></div>
+        <div className={classes.body}>
+          <Typography
+            size="size__32"
+            className={classes.close}
+            color="secondary"
+            onClick={() => setEditWine(null)}
+          >
+            +
+          </Typography>
+        </div>
       </div>
-      <div className={classes.overlay} />
+      <div className={classes.overlay} onClick={() => setEditWine(null)} />
     </>
   );
 };
