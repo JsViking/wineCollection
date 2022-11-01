@@ -16,6 +16,9 @@
     width: 420px;
     height: 680px;
     background-color: var(--color-common-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
   .form {
     position: relative;
@@ -23,6 +26,15 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+  }
+  .submit {
+    position: relative;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    width: fit-content;
   }
 }
 

@@ -3,6 +3,7 @@ import { useCrudContext } from 'store/crud.context';
 import Typography from 'components/typography';
 import Input from 'components/input';
 import { useState } from 'react';
+import Button from 'components/Button';
 
 const EditModal = () => {
   const { setEditWine, editWine } = useCrudContext();
@@ -45,6 +46,9 @@ const EditModal = () => {
               type="number"
             />
           </div>
+          <Button className={classes.submit}>
+            {editWine === 'new' ? 'Добавить' : 'Обновить'}
+          </Button>
         </div>
       </div>
       <div className={classes.overlay} onClick={() => setEditWine(null)} />
