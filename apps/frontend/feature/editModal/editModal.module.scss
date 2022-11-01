@@ -17,6 +17,13 @@
     height: 680px;
     background-color: var(--color-common-white);
   }
+  .form {
+    position: relative;
+    padding: 70px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 .overlay {
@@ -31,4 +38,6 @@
   right: 10px;
   font-size: 50px;
   transform: rotate(47deg);
+  z-index: 1;
+  cursor: pointer;
 }

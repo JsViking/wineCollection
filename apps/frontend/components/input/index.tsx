@@ -1,14 +1,24 @@
+import { type } from 'os';
 import classes from './input.module.scss';
-import { useState } from 'react';
 
-const Input = () => {
-  const [value, setValue] = useState('');
+interface Props {
+  label?: string;
+  value: string | number;
+  onChange: (value: string | number) => void;
+  type?: 'text' | 'number';
+}
+
+const Input = ({ value, onChange, label = '', type = 'text' }: Props) => {
   return (
-    <input
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-      className={classes.Input}
-    />
+    <label>
+      {label}
+      <input
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={classes.Input}
+      />
+    </label>
   );
 };
 
