@@ -9,7 +9,6 @@ export class WinesService {
   constructor(
     @InjectModel(Wines.name) private winesModel: Model<WinesDocument>,
   ) {}
-  private wines = [];
 
   async getAll(): Promise<Wines[]> {
     return this.winesModel.find().exec();

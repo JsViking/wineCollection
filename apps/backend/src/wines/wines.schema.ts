@@ -5,7 +5,7 @@ export type WinesDocument = Wines & Document;
 
 @Schema()
 export class Wines {
-  @Prop()
+  @Prop({ required: true })
   title: string;
 
   @Prop()
@@ -13,6 +13,9 @@ export class Wines {
 
   @Prop()
   description: string;
+
+  @Prop()
+  image: string;
 }
 
 export const WinesSchema = SchemaFactory.createForClass(Wines);
