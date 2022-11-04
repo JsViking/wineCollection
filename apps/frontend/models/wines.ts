@@ -1,6 +1,6 @@
 export interface IWine {
   title: string;
-  description: string;
-  image: string;
-  year: number;
+  description?: string;
+  image?: string;
+  year?: number;
 }
