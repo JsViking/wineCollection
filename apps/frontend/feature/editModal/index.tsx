@@ -5,6 +5,20 @@ import Input from 'components/input';
 import { useState } from 'react';
 import Button from 'components/Button';
 
+type Validation = {
+  title?: string;
+  description?: string;
+  year?: string;
+  image?: string;
+};
+
+const validation: Validation = {
+  title: 'Обязательное поле!',
+  description: '',
+  year: '',
+  image: '',
+};
+
 const EditModal = () => {
   const { setEditWine, editWine } = useCrudContext();
   const [state, setState] = useState({
@@ -13,6 +27,19 @@ const EditModal = () => {
     year: 0,
     image: '',
   });
+  const [error, setError] = useState<Validation>({});
+
+  const handleSubmit = () => {
+    const newErrors: Validation = {};
+    Object.keys(validation).forEach((key) => {
+      // @ts-ignore
+      if (!state[key]) newErrors[key] = validation[key];
+      setError(newErrors);
+    });
+    if (Object.keys(newErrors).length) return;
+    console.log('submit', state);
+  };
+
   if (!editWine) return null;
   return (
     <>
@@ -31,6 +58,7 @@ const EditModal = () => {
               label="Название"
               value={state.title}
               onChange={(value) => setState({ ...state, title: String(value) })}
+              helperText={error.title}
             />
             <Input
               label="Описание"
@@ -38,15 +66,17 @@ const EditModal = () => {
               onChange={(value) =>
                 setState({ ...state, description: String(value) })
               }
+              helperText={error.description}
             />
             <Input
               label="Год"
               value={state.year}
               onChange={(value) => setState({ ...state, year: Number(value) })}
               type="number"
+              helperText={error.year}
             />
           </div>
-          <Button className={classes.submit}>
+          <Button className={classes.submit} onClick={handleSubmit}>
             {editWine === 'new' ? 'Добавить' : 'Обновить'}
           </Button>
         </div>
